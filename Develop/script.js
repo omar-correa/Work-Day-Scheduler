@@ -1,4 +1,4 @@
-var timeInterval = setInterval(function (){
-    var currentDay=moment();
-    $("#currentDay").text(currentDay.format ("MMM Do, YYYY H:mm:ss"));
-})
+// function that shows current day on the webpage 
+var currentDay = moment().format("dddd, MMM Do, YYYY");
+$("#currentDay").text(currentDay);
+
