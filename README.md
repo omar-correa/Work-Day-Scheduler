@@ -33,3 +33,4 @@ The following animation demonstrates the application functionality:
 ## Omar Correa
 https://github.com/omar-correa
 https://github.com/omar-correa/Work-Day-Scheduler
+https://omar-correa.github.io/Work-Day-Scheduler/
