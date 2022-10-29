@@ -1,4 +1,49 @@
 // function that shows current day on the webpage 
-var currentDay = moment().format("dddd, MMM Do, YYYY");
-$("#currentDay").text(currentDay);
+var date = moment().format("dddd, MMM Do, YYYY");
+$("#currentDay").html(date);
+// code runs once DOM is ready
+$(document).ready(function () {
+    // on click listener for .saveBtn
+    $(".saveBtn").on("click", function () {
+        var text = $(this).siblings(".description").val()
+        var time = $(this).parent().attr("id")
 
+    localStorage.setItem(time, text)
+})
+function currentTime() {
+    var timeNow = moment().hour()
+
+    $(".time-block").each(function () {
+        var blockTime = parseInt($(this).attr("id").split("hour")[1])
+
+        if (blockTime < timeNow) {
+            $(this).removeClass("future")
+            $(this).removeClass("present")
+            $(this).addClass("past")
+        }
+        else if (blockTime > timeNow) {
+            $(this).addClass("future")
+            $(this).removeClass("present")
+            $(this).removeClass("past")
+        }
+        else {
+            $(this).removeClass("future")
+            $(this).addClass("present")
+            $(this).removeClass("past")
+        }
+    })
+}
+
+    $("#hour8 .description").val(localStorage.getItem("hour8"));
+    $("#hour9 .description").val(localStorage.getItem("hour9"));
+    $("#hour10 .description").val(localStorage.getItem("hour10"));
+    $("#hour11 .description").val(localStorage.getItem("hour11"));
+    $("#hour12 .description").val(localStorage.getItem("hour12"));
+    $("#hour13 .description").val(localStorage.getItem("hour13"));
+    $("#hour14 .description").val(localStorage.getItem("hour14"));
+    $("#hour15 .description").val(localStorage.getItem("hour15"));
+    $("#hour16 .description").val(localStorage.getItem("hour16"));
+    $("#hour17 .description").val(localStorage.getItem("hour17"));
+
+currentTime()
+})
